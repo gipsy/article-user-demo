@@ -50,12 +50,6 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -120,6 +114,11 @@ export default {
           icon: 'mdi-account-box',
           title: 'My account',
           to: '/user/my-account'
+        },
+        {
+          icon: 'mdi-accounts',
+          title: 'Users',
+          to: '/usersList'
         },
         {
           icon: 'mdi-logout',

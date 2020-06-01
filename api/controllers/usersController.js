@@ -122,3 +122,16 @@ module.exports.user = function (req, res) {
     return res.status(401).json({ message: 'unauthorized' })
   }
 }
+
+// Get Users
+module.exports.usersList = function (req, res) {
+  User.find({}, function (err, users) {
+    var userMap = {};
+
+    users.forEach(function (user) {
+      userMap[user._id] = user;
+    });
+
+    res.send(userMap);
+  });
+}

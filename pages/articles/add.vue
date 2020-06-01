@@ -3,60 +3,55 @@
     <h1>Add New Article</h1>
     <hr>
 
-    <div class="row">
-      <div class="col-md-6">
-        <form
+    <v-row>
+      <v-col
+        cols="12"
+        md="6"
+      >
+        <v-form
           action=""
           method="post"
           @submit.prevent="submitForm()"
         >
-          <div class="form-group">
-            <label for="">Title</label>
-            <input
-              v-model="title"
-              type="text"
-              class="form-control"
-              :class="{ 'is-invalid': errors && errors.title }"
-            >
-            <div v-if="errors && errors.title" class="invalid-feedback">
-              {{ errors.title.msg }}
-            </div>
+          <v-text-field
+            v-model="title"
+            label="Title"
+            :class="{ 'is-invalid': errors && errors.title }"
+          />
+          <div v-if="errors && errors.title" class="invalid-feedback">
+            {{ errors.title.msg }}
           </div>
 
-          <div class="form-group">
-            <label for="">Author</label>
-            <input
-              v-model="author"
-              type="text"
-              class="form-control"
-              :class="{ 'is-invalid': errors && errors.author }"
-            >
-            <div v-if="errors && errors.author" class="invalid-feedback">
-              {{ errors.author.msg }}
-            </div>
+          <v-text-field
+            v-model="author"
+            label="Author"
+            :class="{ 'is-invalid': errors && errors.author }"
+          />
+          <div v-if="errors && errors.author" class="invalid-feedback">
+            {{ errors.author.msg }}
           </div>
 
-          <div class="form-group">
-            <label for="">Body</label>
-            <textarea
-              v-model="body"
-              cols="30"
-              rows="4"
-              class="form-control"
-              :class="{ 'is-invalid': errors && errors.body }"
-            />
-            <div v-if="errors && errors.body" class="invalid-feedback">
-              {{ errors.body.msg }}
-            </div>
+          <v-textarea
+            v-model="body"
+            name="input-7-4"
+            :class="{ 'is-invalid': errors && errors.body }"
+          />
+          <div v-if="errors && errors.body" class="invalid-feedback">
+            {{ errors.body.msg }}
           </div>
 
-          <input type="submit" value="Submit" class="btn btn-primary mr-3">
-          <nuxt-link to="/articles" class="btn btn-secondary mr-3">
+          <v-btn
+            color="success"
+            @click.native="submitForm"
+          >
+            Submit
+          </v-btn>
+          <v-btn to="/articles" class="ma-2">
             Cancel
-          </nuxt-link>
-        </form>
-      </div>
-    </div>
+          </v-btn>
+        </v-form>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
